@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <span>Mi Aplicación Angular</span>
+  <span class="spacer"></span>
+  <button *ngIf="authService.isAuthenticated()" mat-button (click)="authService.logout()">
+    <mat-icon>logout</mat-icon> Salir
+  </button>
+</mat-toolbar>
