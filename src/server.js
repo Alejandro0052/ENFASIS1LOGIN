@@ -23,6 +23,8 @@ app.post('/auth/login', async (req, res) => {
   const { username, password } = req.body;
   
   try {
+    //TRATA DE USAR UN PATRON, PARA COSAS SENCILLAS ARQUITECTURA POR CAPAS Y COSAS ASI  (TE OBLIGAN QUE CADA RESPONSABILIDAD VAYA SEPARADA)
+    // HAY UN PATRON  QUE SEPARA TODOS LOS ACCESOS DE LA BD  (REPOSITORY), PUEDES INTENTAR IMPLEMENTARLO PAR QUE EN ESTE ARCHIVO PRINCIPAL SOLO LLAMES MODULOS
     const result = await pool.query(
       'SELECT * FROM users WHERE email = $1', 
       [username]
